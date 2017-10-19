@@ -21,7 +21,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="apt-mirror-api-0.1" level="project" />
     <orderEntry type="library" name="xom" level="project" />
+    <orderEntry type="library" name="javaws" level="project" />
+    <orderEntry type="library" name="swt-3.6.1-cocoa-macosx" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.21.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: com.moparisthebest.aptIn16:apt-mirror-api:0.2" level="project" />
   </component>
 </module>
