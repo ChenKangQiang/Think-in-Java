@@ -9,7 +9,7 @@
         <module name="think-in-java" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="think-in-java" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -7,6 +7,7 @@
 // cd ..
 // jar cvf gui/jnlp/jnlpfilechooser.jar gui/jnlp/*.class
 package gui.jnlp;
+
 import javax.jnlp.*;
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +43,7 @@ public class JnlpFileChooser extends JFrame {
     public void actionPerformed(ActionEvent e) {
       FileOpenService fs = null;
       try {
-        fs = (FileOpenService)ServiceManager.lookup(
+        fs = (FileOpenService) ServiceManager.lookup(
           "javax.jnlp.FileOpenService");
       } catch(UnavailableServiceException use) {
         throw new RuntimeException(use);

@@ -19,7 +19,37 @@
             <artifactId>apt-mirror-api</artifactId>
             <version>0.2</version>
         </dependency>
+        <dependency>
+            <groupId>xom</groupId>
+            <artifactId>xom</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>swt</artifactId>
+            <version>3.3.0-v3346</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>swt</artifactId>
+            <version>4.6.1</version>
+        </dependency>
+        <!--本地jar-->
+        <dependency>
+            <groupId>net.mindview</groupId>
+            <artifactId>net.mindview.util</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
+
+    <!--其他仓库-->
+    <repositories>
+        <repository>
+            <id>jspresso</id>
+            <url>http://repository.jspresso.org/maven2/</url>
+        </repository>
+    </repositories>
+
 
 
     <build>
