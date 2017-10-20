@@ -8,6 +8,7 @@ import java.io.*;
 import static net.mindview.util.Print.*;
 
 class SleepBlocked implements Runnable {
+    @Override
     public void run() {
         try {
             TimeUnit.SECONDS.sleep(100);
@@ -25,6 +26,7 @@ class IOBlocked implements Runnable {
         in = is;
     }
 
+    @Override
     public void run() {
         try {
             print("Waiting for read():");
@@ -48,12 +50,14 @@ class SynchronizedBlocked implements Runnable {
 
     public SynchronizedBlocked() {
         new Thread() {
+            @Override
             public void run() {
                 f(); // Lock acquired by this thread
             }
         }.start();
     }
 
+    @Override
     public void run() {
         print("Trying to call f()");
         f();

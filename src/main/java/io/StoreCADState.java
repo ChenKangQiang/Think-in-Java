@@ -21,6 +21,7 @@ abstract class Shape implements Serializable {
         dimension = dim;
     }
 
+    @Override
     public String toString() {
         return getClass() +
                 "color[" + getColor() + "] xPos[" + xPos +
@@ -50,10 +51,12 @@ class Circle extends Shape {
         super(xVal, yVal, dim);
     }
 
+    @Override
     public void setColor(int newColor) {
         color = newColor;
     }
 
+    @Override
     public int getColor() {
         return color;
     }
@@ -67,10 +70,12 @@ class Square extends Shape {
         color = RED;
     }
 
+    @Override
     public void setColor(int newColor) {
         color = newColor;
     }
 
+    @Override
     public int getColor() {
         return color;
     }
@@ -95,10 +100,12 @@ class Line extends Shape {
         super(xVal, yVal, dim);
     }
 
+    @Override
     public void setColor(int newColor) {
         color = newColor;
     }
 
+    @Override
     public int getColor() {
         return color;
     }

@@ -14,6 +14,7 @@ public class SubmitLabelManipulationTask {
         frame.setVisible(true);
         TimeUnit.SECONDS.sleep(1);
         SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 label.setText("Hey! This is Different!");
             }

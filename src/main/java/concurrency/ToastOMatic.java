@@ -33,6 +33,7 @@ class Toast {
         return id;
     }
 
+    @Override
     public String toString() {
         return "Toast " + id + ": " + status;
     }
@@ -50,6 +51,7 @@ class Toaster implements Runnable {
         toastQueue = tq;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -77,6 +79,7 @@ class Butterer implements Runnable {
         butteredQueue = buttered;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -102,6 +105,7 @@ class Jammer implements Runnable {
         finishedQueue = finished;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -127,6 +131,7 @@ class Eater implements Runnable {
         finishedQueue = finished;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {

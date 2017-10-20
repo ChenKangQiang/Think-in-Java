@@ -18,6 +18,7 @@ class Product {
         System.out.println(toString());
     }
 
+    @Override
     public String toString() {
         return id + ": " + description + ", price: $" + price;
     }
@@ -30,6 +31,7 @@ class Product {
             new Generator<Product>() {
                 private Random rand = new Random(47);
 
+                @Override
                 public Product next() {
                     return new Product(rand.nextInt(1000), "Test",
                             Math.round(rand.nextDouble() * 1000.0) + 0.99);
@@ -66,6 +68,7 @@ public class Store extends ArrayList<Aisle> {
             add(new Aisle(nShelves, nProducts));
     }
 
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Aisle a : this)

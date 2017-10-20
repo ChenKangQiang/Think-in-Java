@@ -28,6 +28,7 @@ public class Philosopher implements Runnable {
         ponderFactor = ponder;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -48,6 +49,7 @@ public class Philosopher implements Runnable {
         }
     }
 
+    @Override
     public String toString() {
         return "Philosopher " + id;
     }

@@ -20,11 +20,13 @@ class PrioritizedTask implements
         sequence.add(this);
     }
 
+    @Override
     public int compareTo(PrioritizedTask arg) {
         return priority < arg.priority ? 1 :
                 (priority > arg.priority ? -1 : 0);
     }
 
+    @Override
     public void run() {
         try {
             TimeUnit.MILLISECONDS.sleep(rand.nextInt(250));
@@ -34,6 +36,7 @@ class PrioritizedTask implements
         print(this);
     }
 
+    @Override
     public String toString() {
         return String.format("[%1$-3d]", priority) +
                 " Task " + id;
@@ -51,6 +54,7 @@ class PrioritizedTask implements
             exec = e;
         }
 
+        @Override
         public void run() {
             int count = 0;
             for (PrioritizedTask pt : sequence) {
@@ -76,6 +80,7 @@ class PrioritizedTaskProducer implements Runnable {
         exec = e; // Used for EndSentinel
     }
 
+    @Override
     public void run() {
         // Unbounded queue; never blocks.
         // Fill it up fast with random priorities:
@@ -109,6 +114,7 @@ class PrioritizedTaskConsumer implements Runnable {
         this.q = q;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted())

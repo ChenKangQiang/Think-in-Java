@@ -16,11 +16,13 @@ public class EnumMaps {
         EnumMap<AlarmPoints, Command> em =
                 new EnumMap<AlarmPoints, Command>(AlarmPoints.class);
         em.put(KITCHEN, new Command() {
+            @Override
             public void action() {
                 print("Kitchen fire!");
             }
         });
         em.put(BATHROOM, new Command() {
+            @Override
             public void action() {
                 print("Bathroom alert!");
             }

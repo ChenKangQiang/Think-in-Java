@@ -22,11 +22,13 @@ class DelayedTask implements Runnable, Delayed {
         sequence.add(this);
     }
 
+    @Override
     public long getDelay(TimeUnit unit) {
         return unit.convert(
                 trigger - System.nanoTime(), NANOSECONDS);
     }
 
+    @Override
     public int compareTo(Delayed arg) {
         DelayedTask that = (DelayedTask) arg;
         if (trigger < that.trigger) return -1;
@@ -34,10 +36,12 @@ class DelayedTask implements Runnable, Delayed {
         return 0;
     }
 
+    @Override
     public void run() {
         printnb(this + " ");
     }
 
+    @Override
     public String toString() {
         return String.format("[%1$-4d]", delta) +
                 " Task " + id;
@@ -55,6 +59,7 @@ class DelayedTask implements Runnable, Delayed {
             exec = e;
         }
 
+        @Override
         public void run() {
             for (DelayedTask pt : sequence) {
                 printnb(pt.summary() + " ");
@@ -73,6 +78,7 @@ class DelayedTaskConsumer implements Runnable {
         this.q = q;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted())

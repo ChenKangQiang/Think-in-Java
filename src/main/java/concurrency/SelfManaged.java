@@ -10,11 +10,13 @@ public class SelfManaged implements Runnable {
         t.start();
     }
 
+    @Override
     public String toString() {
         return Thread.currentThread().getName() +
                 "(" + countDown + "), ";
     }
 
+    @Override
     public void run() {
         while (true) {
             System.out.print(this);

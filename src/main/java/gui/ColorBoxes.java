@@ -14,6 +14,7 @@ class CBox extends JPanel implements Runnable {
     private static Random rand = new Random();
     private Color color = new Color(0);
 
+    @Override
     public void paintComponent(Graphics g) {
         g.setColor(color);
         Dimension s = getSize();
@@ -24,6 +25,7 @@ class CBox extends JPanel implements Runnable {
         this.pause = pause;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {

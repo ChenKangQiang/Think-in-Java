@@ -16,12 +16,14 @@ abstract class ListTest extends Tester<List<Integer>> {
     class Reader extends TestTask {
         long result = 0;
 
+        @Override
         void test() {
             for (long i = 0; i < testCycles; i++)
                 for (int index = 0; index < containerSize; index++)
                     result += testContainer.get(index);
         }
 
+        @Override
         void putResults() {
             readResult += result;
             readTime += duration;
@@ -29,17 +31,20 @@ abstract class ListTest extends Tester<List<Integer>> {
     }
 
     class Writer extends TestTask {
+        @Override
         void test() {
             for (long i = 0; i < testCycles; i++)
                 for (int index = 0; index < containerSize; index++)
                     testContainer.set(index, writeData[index]);
         }
 
+        @Override
         void putResults() {
             writeTime += duration;
         }
     }
 
+    @Override
     void startReadersAndWriters() {
         for (int i = 0; i < nReaders; i++)
             exec.execute(new Reader());
@@ -49,6 +54,7 @@ abstract class ListTest extends Tester<List<Integer>> {
 }
 
 class SynchronizedArrayListTest extends ListTest {
+    @Override
     List<Integer> containerInitializer() {
         return Collections.synchronizedList(
                 new ArrayList<Integer>(
@@ -61,6 +67,7 @@ class SynchronizedArrayListTest extends ListTest {
 }
 
 class CopyOnWriteArrayListTest extends ListTest {
+    @Override
     List<Integer> containerInitializer() {
         return new CopyOnWriteArrayList<Integer>(
                 new CountingIntegerList(containerSize));

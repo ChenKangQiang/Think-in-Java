@@ -8,6 +8,7 @@ import static net.mindview.util.Print.*;
 
 class InnerA {
     private static class C implements A {
+        @Override
         public void f() {
             print("public C.f()");
         }

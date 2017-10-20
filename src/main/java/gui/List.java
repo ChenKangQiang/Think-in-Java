@@ -21,6 +21,7 @@ public class List extends JFrame {
             new JTextArea(flavors.length, 20);
     private JButton b = new JButton("Add Item");
     private ActionListener bl = new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             if (count < flavors.length) {
                 lItems.add(0, flavors[count++]);
@@ -33,6 +34,7 @@ public class List extends JFrame {
     };
     private ListSelectionListener ll =
             new ListSelectionListener() {
+                @Override
                 public void valueChanged(ListSelectionEvent e) {
                     if (e.getValueIsAdjusting()) return;
                     t.setText("");

@@ -8,10 +8,12 @@ public class Groundhog2 extends Groundhog {
         super(n);
     }
 
+    @Override
     public int hashCode() {
         return number;
     }
 
+    @Override
     public boolean equals(Object o) {
         return o instanceof Groundhog2 &&
                 (number == ((Groundhog2) o).number);

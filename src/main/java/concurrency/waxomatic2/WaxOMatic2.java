@@ -60,6 +60,7 @@ class WaxOn implements Runnable {
         car = c;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -82,6 +83,7 @@ class WaxOff implements Runnable {
         car = c;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {

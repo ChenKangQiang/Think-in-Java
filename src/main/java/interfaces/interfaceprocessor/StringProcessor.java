@@ -4,10 +4,12 @@ package interfaces.interfaceprocessor;
 import java.util.*;
 
 public abstract class StringProcessor implements Processor {
+    @Override
     public String name() {
         return getClass().getSimpleName();
     }
 
+    @Override
     public abstract String process(Object input);
 
     public static String s =
@@ -21,18 +23,21 @@ public abstract class StringProcessor implements Processor {
 }
 
 class Upcase extends StringProcessor {
+    @Override
     public String process(Object input) { // Covariant return
         return ((String) input).toUpperCase();
     }
 }
 
 class Downcase extends StringProcessor {
+    @Override
     public String process(Object input) {
         return ((String) input).toLowerCase();
     }
 }
 
 class Splitter extends StringProcessor {
+    @Override
     public String process(Object input) {
         return Arrays.toString(((String) input).split(" "));
     }

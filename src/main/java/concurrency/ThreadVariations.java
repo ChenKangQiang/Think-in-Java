@@ -17,6 +17,7 @@ class InnerThread1 {
             start();
         }
 
+        @Override
         public void run() {
             try {
                 while (true) {
@@ -29,6 +30,7 @@ class InnerThread1 {
             }
         }
 
+        @Override
         public String toString() {
             return getName() + ": " + countDown;
         }
@@ -46,6 +48,7 @@ class InnerThread2 {
 
     public InnerThread2(String name) {
         t = new Thread(name) {
+            @Override
             public void run() {
                 try {
                     while (true) {
@@ -58,6 +61,7 @@ class InnerThread2 {
                 }
             }
 
+            @Override
             public String toString() {
                 return getName() + ": " + countDown;
             }
@@ -79,6 +83,7 @@ class InnerRunnable1 {
             t.start();
         }
 
+        @Override
         public void run() {
             try {
                 while (true) {
@@ -91,6 +96,7 @@ class InnerRunnable1 {
             }
         }
 
+        @Override
         public String toString() {
             return t.getName() + ": " + countDown;
         }
@@ -108,6 +114,7 @@ class InnerRunnable2 {
 
     public InnerRunnable2(String name) {
         t = new Thread(new Runnable() {
+            @Override
             public void run() {
                 try {
                     while (true) {
@@ -120,6 +127,7 @@ class InnerRunnable2 {
                 }
             }
 
+            @Override
             public String toString() {
                 return Thread.currentThread().getName() +
                         ": " + countDown;
@@ -142,6 +150,7 @@ class ThreadMethod {
     public void runTask() {
         if (t == null) {
             t = new Thread(name) {
+                @Override
                 public void run() {
                     try {
                         while (true) {
@@ -154,6 +163,7 @@ class ThreadMethod {
                     }
                 }
 
+                @Override
                 public String toString() {
                     return getName() + ": " + countDown;
                 }

@@ -18,6 +18,7 @@ class Animal implements Serializable {
         preferredHouse = h;
     }
 
+    @Override
     public String toString() {
         return name + "[" + super.toString() +
                 "], " + preferredHouse + "\n";

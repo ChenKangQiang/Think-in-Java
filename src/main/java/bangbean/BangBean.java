@@ -54,6 +54,7 @@ BangBean extends JPanel implements Serializable {
         tColor = newColor;
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
@@ -74,6 +75,7 @@ BangBean extends JPanel implements Serializable {
     }
 
     class ML extends MouseAdapter {
+        @Override
         public void mousePressed(MouseEvent e) {
             Graphics g = getGraphics();
             g.setColor(tColor);
@@ -92,6 +94,7 @@ BangBean extends JPanel implements Serializable {
     }
 
     class MML extends MouseMotionAdapter {
+        @Override
         public void mouseMoved(MouseEvent e) {
             xm = e.getX();
             ym = e.getY();
@@ -99,6 +102,7 @@ BangBean extends JPanel implements Serializable {
         }
     }
 
+    @Override
     public Dimension getPreferredSize() {
         return new Dimension(200, 200);
     }

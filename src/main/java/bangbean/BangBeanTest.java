@@ -16,6 +16,7 @@ public class BangBeanTest extends JFrame {
     class BBL implements ActionListener {
         private int count = 0;
 
+        @Override
         public void actionPerformed(ActionEvent e) {
             txt.setText("BangBean action " + count++);
         }

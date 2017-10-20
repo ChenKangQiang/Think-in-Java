@@ -28,6 +28,7 @@ public class ActiveObjectDemo {
     public Future<Integer>
     calculateInt(final int x, final int y) {
         return ex.submit(new Callable<Integer>() {
+            @Override
             public Integer call() {
                 print("starting " + x + " + " + y);
                 pause(500);
@@ -39,6 +40,7 @@ public class ActiveObjectDemo {
     public Future<Float>
     calculateFloat(final float x, final float y) {
         return ex.submit(new Callable<Float>() {
+            @Override
             public Float call() {
                 print("starting " + x + " + " + y);
                 pause(2000);

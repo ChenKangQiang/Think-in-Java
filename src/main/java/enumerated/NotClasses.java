@@ -6,16 +6,19 @@ import static net.mindview.util.Print.*;
 
 enum LikeClasses {
     WINKEN {
+        @Override
         void behavior() {
             print("Behavior1");
         }
     },
     BLINKEN {
+        @Override
         void behavior() {
             print("Behavior2");
         }
     },
     NOD {
+        @Override
         void behavior() {
             print("Behavior3");
         }

@@ -14,6 +14,7 @@ public class TabbedPane implements SWTApplication {
     private static TabFolder folder;
     private static Shell shell;
 
+    @Override
     public void createContents(Composite parent) {
         shell = parent.getShell();
         parent.setLayout(new FillLayout());
@@ -42,6 +43,7 @@ public class TabbedPane implements SWTApplication {
         final Button b = new Button(folder, SWT.PUSH);
         b.setText("Select a Directory");
         b.addListener(SWT.MouseDown, new Listener() {
+            @Override
             public void handleEvent(Event e) {
                 DirectoryDialog dd = new DirectoryDialog(shell);
                 String path = dd.open();
@@ -73,6 +75,7 @@ public class TabbedPane implements SWTApplication {
     }
 
     private static Listener listener = new Listener() {
+        @Override
         public void handleEvent(Event e) {
             MessageBox m = new MessageBox(shell, SWT.OK);
             m.setMessage(e.toString());
@@ -98,6 +101,7 @@ public class TabbedPane implements SWTApplication {
         final ProgressBar progress =
                 new ProgressBar(composite, SWT.HORIZONTAL);
         slider.addSelectionListener(new SelectionAdapter() {
+            @Override
             public void widgetSelected(SelectionEvent event) {
                 progress.setSelection(slider.getSelection());
             }
@@ -120,6 +124,7 @@ public class TabbedPane implements SWTApplication {
             extends MouseAdapter implements MouseMoveListener {
         private Point p = new Point(0, 0);
 
+        @Override
         public void mouseMove(MouseEvent e) {
             if ((e.stateMask & SWT.BUTTON1) == 0)
                 return;
@@ -129,6 +134,7 @@ public class TabbedPane implements SWTApplication {
             updatePoint(e);
         }
 
+        @Override
         public void mouseDown(MouseEvent e) {
             updatePoint(e);
         }

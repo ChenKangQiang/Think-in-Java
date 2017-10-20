@@ -21,6 +21,7 @@ public class ResponsiveUI extends Thread {
         start();
     }
 
+    @Override
     public void run() {
         while (true) {
             d = d + (Math.PI + Math.E) / d;

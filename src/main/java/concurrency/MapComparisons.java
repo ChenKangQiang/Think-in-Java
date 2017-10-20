@@ -17,12 +17,14 @@ abstract class MapTest
     class Reader extends TestTask {
         long result = 0;
 
+        @Override
         void test() {
             for (long i = 0; i < testCycles; i++)
                 for (int index = 0; index < containerSize; index++)
                     result += testContainer.get(index);
         }
 
+        @Override
         void putResults() {
             readResult += result;
             readTime += duration;
@@ -30,17 +32,20 @@ abstract class MapTest
     }
 
     class Writer extends TestTask {
+        @Override
         void test() {
             for (long i = 0; i < testCycles; i++)
                 for (int index = 0; index < containerSize; index++)
                     testContainer.put(index, writeData[index]);
         }
 
+        @Override
         void putResults() {
             writeTime += duration;
         }
     }
 
+    @Override
     void startReadersAndWriters() {
         for (int i = 0; i < nReaders; i++)
             exec.execute(new Reader());
@@ -50,6 +55,7 @@ abstract class MapTest
 }
 
 class SynchronizedHashMapTest extends MapTest {
+    @Override
     Map<Integer, Integer> containerInitializer() {
         return Collections.synchronizedMap(
                 new HashMap<Integer, Integer>(
@@ -65,6 +71,7 @@ class SynchronizedHashMapTest extends MapTest {
 }
 
 class ConcurrentHashMapTest extends MapTest {
+    @Override
     Map<Integer, Integer> containerInitializer() {
         return new ConcurrentHashMap<Integer, Integer>(
                 MapData.map(

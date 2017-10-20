@@ -36,6 +36,7 @@ public class BigEgg2 extends Egg2 {
             print("BigEgg2.Yolk()");
         }
 
+        @Override
         public void f() {
             print("BigEgg2.Yolk.f()");
         }

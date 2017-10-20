@@ -5,6 +5,7 @@ package typeinfo; /* Added by Eclipse.py */
 import typeinfo.interfacea.*;
 
 class B implements A {
+    @Override
     public void f() {
     }
 

@@ -13,6 +13,7 @@ class MethodSelector implements InvocationHandler {
         this.proxied = proxied;
     }
 
+    @Override
     public Object
     invoke(Object proxy, Method method, Object[] args)
             throws Throwable {
@@ -33,18 +34,22 @@ interface SomeMethods {
 }
 
 class Implementation implements SomeMethods {
+    @Override
     public void boring1() {
         print("boring1");
     }
 
+    @Override
     public void boring2() {
         print("boring2");
     }
 
+    @Override
     public void interesting(String arg) {
         print("interesting " + arg);
     }
 
+    @Override
     public void boring3() {
         print("boring3");
     }

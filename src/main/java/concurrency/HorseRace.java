@@ -22,6 +22,7 @@ class Horse implements Runnable {
         return strides;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -38,6 +39,7 @@ class Horse implements Runnable {
         }
     }
 
+    @Override
     public String toString() {
         return "Horse " + id + " ";
     }
@@ -60,6 +62,7 @@ public class HorseRace {
 
     public HorseRace(int nHorses, final int pause) {
         barrier = new CyclicBarrier(nHorses, new Runnable() {
+            @Override
             public void run() {
                 StringBuilder s = new StringBuilder();
                 for (int i = 0; i < FINISH_LINE; i++)

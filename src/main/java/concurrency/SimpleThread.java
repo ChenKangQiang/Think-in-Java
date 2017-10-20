@@ -12,10 +12,12 @@ public class SimpleThread extends Thread {
         start();
     }
 
+    @Override
     public String toString() {
         return "#" + getName() + "(" + countDown + "), ";
     }
 
+    @Override
     public void run() {
         while (true) {
             System.out.print(this);

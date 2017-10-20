@@ -14,8 +14,14 @@ import java.util.*;
 
 import net.mindview.util.*;
 
+/**
+ * @author chen
+ */
 class CBox extends Canvas implements Runnable {
+
     class CBoxPaintListener implements PaintListener {
+
+        @Override
         public void paintControl(PaintEvent e) {
             Color color = new Color(e.display, cColor);
             e.gc.setBackground(color);
@@ -41,11 +47,13 @@ class CBox extends Canvas implements Runnable {
         addPaintListener(new CBoxPaintListener());
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
                 cColor = newColor();
                 getDisplay().asyncExec(new Runnable() {
+                    @Override
                     public void run() {
                         try {
                             redraw();
@@ -70,6 +78,7 @@ public class ColorBoxes implements SWTApplication {
     private int grid = 12;
     private int pause = 50;
 
+    @Override
     public void createContents(Composite parent) {
         GridLayout gridLayout = new GridLayout(grid, true);
         gridLayout.horizontalSpacing = 0;

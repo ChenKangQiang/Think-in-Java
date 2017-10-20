@@ -14,6 +14,7 @@ public class SerialCtl implements Serializable {
         b = "Transient: " + bb;
     }
 
+    @Override
     public String toString() {
         return a + "\n" + b;
     }

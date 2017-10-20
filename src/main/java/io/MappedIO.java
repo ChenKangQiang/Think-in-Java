@@ -33,6 +33,7 @@ public class MappedIO {
 
     private static Tester[] tests = {
             new Tester("Stream Write") {
+                @Override
                 public void test() throws IOException {
                     DataOutputStream dos = new DataOutputStream(
                             new BufferedOutputStream(
@@ -43,6 +44,7 @@ public class MappedIO {
                 }
             },
             new Tester("Mapped Write") {
+                @Override
                 public void test() throws IOException {
                     FileChannel fc =
                             new RandomAccessFile("temp.tmp", "rw")
@@ -56,6 +58,7 @@ public class MappedIO {
                 }
             },
             new Tester("Stream Read") {
+                @Override
                 public void test() throws IOException {
                     DataInputStream dis = new DataInputStream(
                             new BufferedInputStream(
@@ -66,6 +69,7 @@ public class MappedIO {
                 }
             },
             new Tester("Mapped Read") {
+                @Override
                 public void test() throws IOException {
                     FileChannel fc = new FileInputStream(
                             new File("temp.tmp")).getChannel();
@@ -78,6 +82,7 @@ public class MappedIO {
                 }
             },
             new Tester("Stream Read/Write") {
+                @Override
                 public void test() throws IOException {
                     RandomAccessFile raf = new RandomAccessFile(
                             new File("temp.tmp"), "rw");
@@ -90,6 +95,7 @@ public class MappedIO {
                 }
             },
             new Tester("Mapped Read/Write") {
+                @Override
                 public void test() throws IOException {
                     FileChannel fc = new RandomAccessFile(
                             new File("temp.tmp"), "rw").getChannel();

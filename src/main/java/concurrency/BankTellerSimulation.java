@@ -18,6 +18,7 @@ class Customer {
         return serviceTime;
     }
 
+    @Override
     public String toString() {
         return "[" + serviceTime + "]";
     }
@@ -29,6 +30,7 @@ class CustomerLine extends ArrayBlockingQueue<Customer> {
         super(maxLineSize);
     }
 
+    @Override
     public String toString() {
         if (this.size() == 0)
             return "[Empty]";
@@ -48,6 +50,7 @@ class CustomerGenerator implements Runnable {
         customers = cq;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -73,6 +76,7 @@ class Teller implements Runnable, Comparable<Teller> {
         customers = cq;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -102,6 +106,7 @@ class Teller implements Runnable, Comparable<Teller> {
         notifyAll();
     }
 
+    @Override
     public String toString() {
         return "Teller " + id + " ";
     }
@@ -111,6 +116,7 @@ class Teller implements Runnable, Comparable<Teller> {
     }
 
     // Used by priority queue:
+    @Override
     public synchronized int compareTo(Teller other) {
         return customersServed < other.customersServed ? -1 :
                 (customersServed == other.customersServed ? 0 : 1);
@@ -175,6 +181,7 @@ class TellerManager implements Runnable {
         tellersDoingOtherThings.offer(teller);
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -191,6 +198,7 @@ class TellerManager implements Runnable {
         System.out.println(this + "terminating");
     }
 
+    @Override
     public String toString() {
         return "TellerManager ";
     }

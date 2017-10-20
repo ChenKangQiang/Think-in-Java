@@ -22,10 +22,12 @@ class Decorator extends Basic {
         this.basic = basic;
     }
 
+    @Override
     public void set(String val) {
         basic.set(val);
     }
 
+    @Override
     public String get() {
         return basic.get();
     }

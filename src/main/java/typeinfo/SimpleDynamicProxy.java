@@ -10,6 +10,7 @@ class DynamicProxyHandler implements InvocationHandler {
         this.proxied = proxied;
     }
 
+    @Override
     public Object
     invoke(Object proxy, Method method, Object[] args)
             throws Throwable {

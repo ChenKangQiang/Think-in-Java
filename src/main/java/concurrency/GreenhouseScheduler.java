@@ -34,6 +34,7 @@ public class GreenhouseScheduler {
     }
 
     class LightOn implements Runnable {
+        @Override
         public void run() {
             // Put hardware control code here to
             // physically turn on the light.
@@ -43,6 +44,7 @@ public class GreenhouseScheduler {
     }
 
     class LightOff implements Runnable {
+        @Override
         public void run() {
             // Put hardware control code here to
             // physically turn off the light.
@@ -52,6 +54,7 @@ public class GreenhouseScheduler {
     }
 
     class WaterOn implements Runnable {
+        @Override
         public void run() {
             // Put hardware control code here.
             System.out.println("Turning greenhouse water on");
@@ -60,6 +63,7 @@ public class GreenhouseScheduler {
     }
 
     class WaterOff implements Runnable {
+        @Override
         public void run() {
             // Put hardware control code here.
             System.out.println("Turning greenhouse water off");
@@ -68,6 +72,7 @@ public class GreenhouseScheduler {
     }
 
     class ThermostatNight implements Runnable {
+        @Override
         public void run() {
             // Put hardware control code here.
             System.out.println("Thermostat to night setting");
@@ -76,6 +81,7 @@ public class GreenhouseScheduler {
     }
 
     class ThermostatDay implements Runnable {
+        @Override
         public void run() {
             // Put hardware control code here.
             System.out.println("Thermostat to day setting");
@@ -84,18 +90,21 @@ public class GreenhouseScheduler {
     }
 
     class Bell implements Runnable {
+        @Override
         public void run() {
             System.out.println("Bing!");
         }
     }
 
     class Terminate implements Runnable {
+        @Override
         public void run() {
             System.out.println("Terminating");
             scheduler.shutdownNow();
             // Must start a separate task to do this job,
             // since the scheduler has been shut down:
             new Thread() {
+                @Override
                 public void run() {
                     for (DataPoint d : data)
                         System.out.println(d);
@@ -116,6 +125,7 @@ public class GreenhouseScheduler {
             humidity = hum;
         }
 
+        @Override
         public String toString() {
             return time.getTime() +
                     String.format(
@@ -140,6 +150,7 @@ public class GreenhouseScheduler {
             new ArrayList<DataPoint>());
 
     class CollectData implements Runnable {
+        @Override
         public void run() {
             System.out.println("Collecting data");
             synchronized (GreenhouseScheduler.this) {

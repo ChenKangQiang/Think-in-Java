@@ -18,6 +18,7 @@ class Mime {
     public void pushInvisibleWalls() {
     }
 
+    @Override
     public String toString() {
         return "Mime";
     }

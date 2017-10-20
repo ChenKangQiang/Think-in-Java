@@ -14,6 +14,7 @@ class Data implements Serializable {
         this.n = n;
     }
 
+    @Override
     public String toString() {
         return Integer.toString(n);
     }
@@ -41,6 +42,7 @@ public class Worm implements Serializable {
         print("Default constructor");
     }
 
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder(":");
         result.append(c);

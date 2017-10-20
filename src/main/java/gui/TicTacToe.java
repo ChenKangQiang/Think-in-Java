@@ -34,6 +34,7 @@ public class TicTacToe extends JFrame {
                 addMouseListener(new ML());
             }
 
+            @Override
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 int
@@ -53,6 +54,7 @@ public class TicTacToe extends JFrame {
             }
 
             class ML extends MouseAdapter {
+                @Override
                 public void mousePressed(MouseEvent e) {
                     if (state == State.BLANK) {
                         state = turn;
@@ -68,6 +70,7 @@ public class TicTacToe extends JFrame {
     }
 
     class BL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             JDialog d = new ToeDialog(
                     new Integer(rows.getText()),

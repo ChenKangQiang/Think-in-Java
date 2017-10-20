@@ -23,6 +23,7 @@ public class QueueBehavior {
                 "eight nine ten").split(" ");
         int i;
 
+        @Override
         public String next() {
             return s[i++];
         }

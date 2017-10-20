@@ -11,6 +11,7 @@ class Government implements Generator<String> {
             "government").split(" ");
     private int index;
 
+    @Override
     public String next() {
         return foundation[index++];
     }

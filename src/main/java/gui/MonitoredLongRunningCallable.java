@@ -24,6 +24,7 @@ class MonitoredCallable implements Callable<String> {
         monitor.setMillisToPopup(500);
     }
 
+    @Override
     public String call() {
         System.out.println(this + " started");
         try {
@@ -34,6 +35,7 @@ class MonitoredCallable implements Callable<String> {
                 final int progress = i;
                 SwingUtilities.invokeLater(
                         new Runnable() {
+                            @Override
                             public void run() {
                                 monitor.setProgress(progress);
                             }
@@ -49,6 +51,7 @@ class MonitoredCallable implements Callable<String> {
         return "Result: " + this + " completed";
     }
 
+    @Override
     public String toString() {
         return "Task " + id;
     }
@@ -64,6 +67,7 @@ public class MonitoredLongRunningCallable extends JFrame {
 
     public MonitoredLongRunningCallable() {
         b1.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 MonitoredCallable task = new MonitoredCallable(
                         new ProgressMonitor(
@@ -75,12 +79,14 @@ public class MonitoredLongRunningCallable extends JFrame {
             }
         });
         b2.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 for (String result : manager.purge())
                     System.out.println(result);
             }
         });
         b3.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 for (String result : manager.getResults())
                     System.out.println(result);

@@ -64,6 +64,7 @@ public abstract class Tester<C> {
 
         long duration;
 
+        @Override
         public void run() {
             long startTime = System.nanoTime();
             test();

@@ -9,6 +9,7 @@ import static net.mindview.util.Print.*;
 class AnonymousA {
     public static A makeA() {
         return new A() {
+            @Override
             public void f() {
                 print("public C.f()");
             }

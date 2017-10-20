@@ -12,18 +12,22 @@ class ReversibleArrayList<T> extends ArrayList<T> {
 
     public Iterable<T> reversed() {
         return new Iterable<T>() {
+            @Override
             public Iterator<T> iterator() {
                 return new Iterator<T>() {
                     int current = size() - 1;
 
+                    @Override
                     public boolean hasNext() {
                         return current > -1;
                     }
 
+                    @Override
                     public T next() {
                         return get(current--);
                     }
 
+                    @Override
                     public void remove() { // Not implemented
                         throw new UnsupportedOperationException();
                     }

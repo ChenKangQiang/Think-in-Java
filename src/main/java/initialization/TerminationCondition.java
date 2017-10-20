@@ -14,6 +14,7 @@ class Book {
         checkedOut = false;
     }
 
+    @Override
     protected void finalize() {
         if (checkedOut)
             System.out.println("Error: checked out");

@@ -20,6 +20,7 @@ public class Switch {
         print(this);
     }
 
+    @Override
     public String toString() {
         return state ? "on" : "off";
     }

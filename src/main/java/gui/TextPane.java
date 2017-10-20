@@ -18,6 +18,7 @@ public class TextPane extends JFrame {
 
     public TextPane() {
         b.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 for (int i = 1; i < 10; i++)
                     tp.setText(tp.getText() + sg.next() + "\n");

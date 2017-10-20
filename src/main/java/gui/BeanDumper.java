@@ -62,6 +62,7 @@ public class BeanDumper extends JFrame {
     }
 
     class Dumper implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             String name = query.getText();
             Class<?> c = null;

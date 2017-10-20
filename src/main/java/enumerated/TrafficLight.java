@@ -28,6 +28,7 @@ public class TrafficLight {
         }
     }
 
+    @Override
     public String toString() {
         return "The traffic light is " + color;
     }

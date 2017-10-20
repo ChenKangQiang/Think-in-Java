@@ -18,6 +18,7 @@ class SineDraw extends Canvas {
     public SineDraw(Composite parent, int style) {
         super(parent, style);
         addPaintListener(new PaintListener() {
+            @Override
             public void paintControl(PaintEvent e) {
                 int maxWidth = getSize().x;
                 double hstep = (double) maxWidth / (double) points;
@@ -56,6 +57,7 @@ public class SineWave implements SWTApplication {
     private SineDraw sines;
     private Slider slider;
 
+    @Override
     public void createContents(Composite parent) {
         parent.setLayout(new GridLayout(1, true));
         sines = new SineDraw(parent, SWT.NONE);
@@ -67,6 +69,7 @@ public class SineWave implements SWTApplication {
         slider.setLayoutData(
                 new GridData(SWT.FILL, SWT.DEFAULT, true, false));
         slider.addSelectionListener(new SelectionAdapter() {
+            @Override
             public void widgetSelected(SelectionEvent event) {
                 sines.setCycles(slider.getSelection());
             }

@@ -35,6 +35,7 @@ class Order { // (A data-transfer object)
         return waitPerson;
     }
 
+    @Override
     public String toString() {
         return "Order: " + id + " item: " + food +
                 " for: " + customer +
@@ -60,6 +61,7 @@ class Plate {
         return food;
     }
 
+    @Override
     public String toString() {
         return food.toString();
     }
@@ -84,6 +86,7 @@ class Customer implements Runnable {
         placeSetting.put(p);
     }
 
+    @Override
     public void run() {
         for (Course course : Course.values()) {
             Food food = course.randomSelection();
@@ -100,6 +103,7 @@ class Customer implements Runnable {
         print(this + "finished meal, leaving");
     }
 
+    @Override
     public String toString() {
         return "Customer " + id + " ";
     }
@@ -126,6 +130,7 @@ class WaitPerson implements Runnable {
         }
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -142,6 +147,7 @@ class WaitPerson implements Runnable {
         print(this + " off duty");
     }
 
+    @Override
     public String toString() {
         return "WaitPerson " + id + " ";
     }
@@ -157,6 +163,7 @@ class Chef implements Runnable {
         restaurant = rest;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -174,6 +181,7 @@ class Chef implements Runnable {
         print(this + " off duty");
     }
 
+    @Override
     public String toString() {
         return "Chef " + id + " ";
     }
@@ -203,6 +211,7 @@ class Restaurant implements Runnable {
         }
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {

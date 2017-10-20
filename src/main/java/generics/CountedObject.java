@@ -9,6 +9,7 @@ public class CountedObject {
         return id;
     }
 
+    @Override
     public String toString() {
         return "CountedObject " + id;
     }

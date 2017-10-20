@@ -17,6 +17,7 @@ class TaskPortion implements Runnable {
         this.latch = latch;
     }
 
+    @Override
     public void run() {
         try {
             doWork();
@@ -31,6 +32,7 @@ class TaskPortion implements Runnable {
         print(this + "completed");
     }
 
+    @Override
     public String toString() {
         return String.format("%1$-3d ", id);
     }
@@ -46,6 +48,7 @@ class WaitingTask implements Runnable {
         this.latch = latch;
     }
 
+    @Override
     public void run() {
         try {
             latch.await();
@@ -55,6 +58,7 @@ class WaitingTask implements Runnable {
         }
     }
 
+    @Override
     public String toString() {
         return String.format("WaitingTask %1$-3d ", id);
     }

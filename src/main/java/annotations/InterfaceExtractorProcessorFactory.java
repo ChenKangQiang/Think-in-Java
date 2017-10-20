@@ -9,17 +9,20 @@ import java.util.*;
 
 public class InterfaceExtractorProcessorFactory
         implements AnnotationProcessorFactory {
+    @Override
     public AnnotationProcessor getProcessorFor(
             Set<AnnotationTypeDeclaration> atds,
             AnnotationProcessorEnvironment env) {
         return new InterfaceExtractorProcessor(env);
     }
 
+    @Override
     public Collection<String> supportedAnnotationTypes() {
         return
                 Collections.singleton("annotations.ExtractInterface");
     }
 
+    @Override
     public Collection<String> supportedOptions() {
         return Collections.emptySet();
     }

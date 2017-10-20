@@ -15,12 +15,14 @@ import static com.sun.mirror.util.DeclarationVisitors.*;
 
 public class TableCreationProcessorFactory
         implements AnnotationProcessorFactory {
+    @Override
     public AnnotationProcessor getProcessorFor(
             Set<AnnotationTypeDeclaration> atds,
             AnnotationProcessorEnvironment env) {
         return new TableCreationProcessor(env);
     }
 
+    @Override
     public Collection<String> supportedAnnotationTypes() {
         return Arrays.asList(
                 "annotations.database.DBTable",
@@ -29,6 +31,7 @@ public class TableCreationProcessorFactory
                 "annotations.database.SQLInteger");
     }
 
+    @Override
     public Collection<String> supportedOptions() {
         return Collections.emptySet();
     }
@@ -43,6 +46,7 @@ public class TableCreationProcessorFactory
             this.env = env;
         }
 
+        @Override
         public void process() {
             for (TypeDeclaration typeDecl :
                     env.getSpecifiedTypeDeclarations()) {
@@ -56,6 +60,7 @@ public class TableCreationProcessorFactory
 
         private class TableCreationVisitor
                 extends SimpleDeclarationVisitor {
+            @Override
             public void visitClassDeclaration(
                     ClassDeclaration d) {
                 DBTable dbTable = d.getAnnotation(DBTable.class);
@@ -68,6 +73,7 @@ public class TableCreationProcessorFactory
                 }
             }
 
+            @Override
             public void visitFieldDeclaration(
                     FieldDeclaration d) {
                 String columnName = "";

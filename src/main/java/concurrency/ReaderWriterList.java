@@ -55,6 +55,7 @@ class ReaderWriterListTest {
             new ReaderWriterList<Integer>(SIZE, 0);
 
     private class Writer implements Runnable {
+        @Override
         public void run() {
             try {
                 for (int i = 0; i < 20; i++) { // 2 second test
@@ -70,6 +71,7 @@ class ReaderWriterListTest {
     }
 
     private class Reader implements Runnable {
+        @Override
         public void run() {
             try {
                 while (!Thread.interrupted()) {

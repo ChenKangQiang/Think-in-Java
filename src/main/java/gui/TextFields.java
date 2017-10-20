@@ -36,14 +36,17 @@ public class TextFields extends JFrame {
     }
 
     class T1 implements DocumentListener {
+        @Override
         public void changedUpdate(DocumentEvent e) {
         }
 
+        @Override
         public void insertUpdate(DocumentEvent e) {
             t2.setText(t1.getText());
             t3.setText("Text: " + t1.getText());
         }
 
+        @Override
         public void removeUpdate(DocumentEvent e) {
             t2.setText(t1.getText());
         }
@@ -52,12 +55,14 @@ public class TextFields extends JFrame {
     class T1A implements ActionListener {
         private int count = 0;
 
+        @Override
         public void actionPerformed(ActionEvent e) {
             t3.setText("t1 Action Event " + count++);
         }
     }
 
     class B1 implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             if (t1.getSelectedText() == null)
                 s = t1.getText();
@@ -68,6 +73,7 @@ public class TextFields extends JFrame {
     }
 
     class B2 implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             ucd.setUpperCase(false);
             t1.setText("Inserted by Button 2: " + s);
@@ -88,6 +94,7 @@ class UpperCaseDocument extends PlainDocument {
         upperCase = flag;
     }
 
+    @Override
     public void
     insertString(int offset, String str, AttributeSet attSet)
             throws BadLocationException {

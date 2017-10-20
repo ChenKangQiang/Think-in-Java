@@ -44,6 +44,7 @@ class AddableCollectionAdapter<T> implements Addable<T> {
         this.c = c;
     }
 
+    @Override
     public void add(T item) {
         c.add(item);
     }
@@ -61,6 +62,7 @@ class Adapter {
 // Make a SimpleQueue Addable using inheritance:
 class AddableSimpleQueue<T>
         extends SimpleQueue<T> implements Addable<T> {
+    @Override
     public void add(T item) {
         super.add(item);
     }

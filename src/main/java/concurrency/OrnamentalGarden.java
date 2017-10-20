@@ -44,6 +44,7 @@ class Entrance implements Runnable {
         entrances.add(this);
     }
 
+    @Override
     public void run() {
         while (!canceled) {
             synchronized (this) {
@@ -63,6 +64,7 @@ class Entrance implements Runnable {
         return number;
     }
 
+    @Override
     public String toString() {
         return "Entrance " + id + ": " + getValue();
     }

@@ -10,6 +10,7 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
     private List<K> keys = new ArrayList<K>();
     private List<V> values = new ArrayList<V>();
 
+    @Override
     public V put(K key, V value) {
         V oldValue = get(key); // The old value or null
         if (!keys.contains(key)) {
@@ -20,12 +21,14 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
         return oldValue;
     }
 
+    @Override
     public V get(Object key) { // key is type Object, not K
         if (!keys.contains(key))
             return null;
         return values.get(keys.indexOf(key));
     }
 
+    @Override
     public Set<Entry<K, V>> entrySet() {
         Set<Entry<K, V>> set = new HashSet<Entry<K, V>>();
         Iterator<K> ki = keys.iterator();

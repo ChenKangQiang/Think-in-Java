@@ -13,6 +13,7 @@ public class AtUnitExample5 {
         this.text = text;
     }
 
+    @Override
     public String toString() {
         return text;
     }

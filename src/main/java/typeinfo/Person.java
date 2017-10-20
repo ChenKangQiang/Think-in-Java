@@ -16,6 +16,7 @@ class Person {
         this.address = address;
     }
 
+    @Override
     public String toString() {
         return "Person: " + first + " " + last + " " + address;
     }
@@ -26,6 +27,7 @@ class Person {
             super("None", "None", "None");
         }
 
+        @Override
         public String toString() {
             return "NullPerson";
         }

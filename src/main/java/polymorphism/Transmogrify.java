@@ -11,12 +11,14 @@ class Actor {
 }
 
 class HappyActor extends Actor {
+    @Override
     public void act() {
         print("HappyActor");
     }
 }
 
 class SadActor extends Actor {
+    @Override
     public void act() {
         print("SadActor");
     }

@@ -8,36 +8,43 @@ import static net.mindview.util.Print.*;
 public class CarWash {
     public enum Cycle {
         UNDERBODY {
+            @Override
             void action() {
                 print("Spraying the underbody");
             }
         },
         WHEELWASH {
+            @Override
             void action() {
                 print("Washing the wheels");
             }
         },
         PREWASH {
+            @Override
             void action() {
                 print("Loosening the dirt");
             }
         },
         BASIC {
+            @Override
             void action() {
                 print("The basic wash");
             }
         },
         HOTWAX {
+            @Override
             void action() {
                 print("Applying hot wax");
             }
         },
         RINSE {
+            @Override
             void action() {
                 print("Rinsing");
             }
         },
         BLOWDRY {
+            @Override
             void action() {
                 print("Blowing dry");
             }
@@ -58,6 +65,7 @@ public class CarWash {
             c.action();
     }
 
+    @Override
     public String toString() {
         return cycles.toString();
     }

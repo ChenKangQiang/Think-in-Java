@@ -7,10 +7,12 @@ import typeinfo.pets.*;
 import static net.mindview.util.Print.*;
 
 class PerformingDog extends Dog implements Performs {
+    @Override
     public void speak() {
         print("Woof!");
     }
 
+    @Override
     public void sit() {
         print("Sitting");
     }
@@ -20,10 +22,12 @@ class PerformingDog extends Dog implements Performs {
 }
 
 class Robot implements Performs {
+    @Override
     public void speak() {
         print("Click!");
     }
 
+    @Override
     public void sit() {
         print("Clank!");
     }

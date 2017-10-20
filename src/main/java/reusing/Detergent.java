@@ -23,6 +23,7 @@ class Cleanser {
         append(" scrub()");
     }
 
+    @Override
     public String toString() {
         return s;
     }
@@ -38,6 +39,7 @@ class Cleanser {
 
 public class Detergent extends Cleanser {
     // Change a method:
+    @Override
     public void scrub() {
         append(" Detergent.scrub()");
         super.scrub(); // Call base-class version

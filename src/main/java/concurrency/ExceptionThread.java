@@ -5,6 +5,7 @@ package concurrency; /* Added by Eclipse.py */
 import java.util.concurrent.*;
 
 public class ExceptionThread implements Runnable {
+    @Override
     public void run() {
         throw new RuntimeException();
     }

@@ -37,6 +37,7 @@ class Car {
         wheels = true;
     }
 
+    @Override
     public synchronized String toString() {
         return "Car " + id + " [" + " engine: " + engine
                 + " driveTrain: " + driveTrain
@@ -55,6 +56,7 @@ class ChassisBuilder implements Runnable {
         carQueue = cq;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -92,6 +94,7 @@ class Assembler implements Runnable {
         return barrier;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -122,6 +125,7 @@ class Reporter implements Runnable {
         carQueue = cq;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -158,6 +162,7 @@ abstract class Robot implements Runnable {
     // The part of run() that's different for each robot:
     abstract protected void performService();
 
+    @Override
     public void run() {
         try {
             powerDown(); // Wait until needed
@@ -186,6 +191,7 @@ abstract class Robot implements Runnable {
             wait();
     }
 
+    @Override
     public String toString() {
         return getClass().getName();
     }
@@ -196,6 +202,7 @@ class EngineRobot extends Robot {
         super(pool);
     }
 
+    @Override
     protected void performService() {
         print(this + " installing engine");
         assembler.car().addEngine();
@@ -207,6 +214,7 @@ class DriveTrainRobot extends Robot {
         super(pool);
     }
 
+    @Override
     protected void performService() {
         print(this + " installing DriveTrain");
         assembler.car().addDriveTrain();
@@ -218,6 +226,7 @@ class WheelRobot extends Robot {
         super(pool);
     }
 
+    @Override
     protected void performService() {
         print(this + " installing Wheels");
         assembler.car().addWheels();

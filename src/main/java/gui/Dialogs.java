@@ -15,6 +15,7 @@ class MyDialog extends JDialog {
         add(new JLabel("Here is my dialog"));
         JButton ok = new JButton("OK");
         ok.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 dispose(); // Closes the dialog
             }
@@ -30,6 +31,7 @@ public class Dialogs extends JFrame {
 
     public Dialogs() {
         b1.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 dlg.setVisible(true);
             }

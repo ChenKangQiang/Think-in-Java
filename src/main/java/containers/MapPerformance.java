@@ -11,6 +11,7 @@ public class MapPerformance {
 
     static {
         tests.add(new Test<Map<Integer, Integer>>("put") {
+            @Override
             int test(Map<Integer, Integer> map, TestParam tp) {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -23,6 +24,7 @@ public class MapPerformance {
             }
         });
         tests.add(new Test<Map<Integer, Integer>>("get") {
+            @Override
             int test(Map<Integer, Integer> map, TestParam tp) {
                 int loops = tp.loops;
                 int span = tp.size * 2;
@@ -33,6 +35,7 @@ public class MapPerformance {
             }
         });
         tests.add(new Test<Map<Integer, Integer>>("iterate") {
+            @Override
             int test(Map<Integer, Integer> map, TestParam tp) {
                 int loops = tp.loops * 10;
                 for (int i = 0; i < loops; i++) {

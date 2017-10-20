@@ -19,6 +19,7 @@ class SineDraw extends JPanel {
         setCycles(5);
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         int maxWidth = getWidth();
@@ -57,6 +58,7 @@ public class SineWave extends JFrame {
     public SineWave() {
         add(sines);
         adjustCycles.addChangeListener(new ChangeListener() {
+            @Override
             public void stateChanged(ChangeEvent e) {
                 sines.setCycles(
                         ((JSlider) e.getSource()).getValue());

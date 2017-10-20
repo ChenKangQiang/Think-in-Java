@@ -37,6 +37,7 @@ abstract class Accumulator {
     public abstract long read();
 
     private class Modifier implements Runnable {
+        @Override
         public void run() {
             for (long i = 0; i < cycles; i++)
                 accumulate();
@@ -51,6 +52,7 @@ abstract class Accumulator {
     private class Reader implements Runnable {
         private volatile long value;
 
+        @Override
         public void run() {
             for (long i = 0; i < cycles; i++)
                 value = read();
@@ -89,11 +91,13 @@ class BaseLine extends Accumulator {
         id = "BaseLine";
     }
 
+    @Override
     public void accumulate() {
         value += preLoaded[index++];
         if (index >= SIZE) index = 0;
     }
 
+    @Override
     public long read() {
         return value;
     }
@@ -104,11 +108,13 @@ class SynchronizedTest extends Accumulator {
         id = "synchronized";
     }
 
+    @Override
     public synchronized void accumulate() {
         value += preLoaded[index++];
         if (index >= SIZE) index = 0;
     }
 
+    @Override
     public synchronized long read() {
         return value;
     }
@@ -121,6 +127,7 @@ class LockTest extends Accumulator {
 
     private Lock lock = new ReentrantLock();
 
+    @Override
     public void accumulate() {
         lock.lock();
         try {
@@ -131,6 +138,7 @@ class LockTest extends Accumulator {
         }
     }
 
+    @Override
     public long read() {
         lock.lock();
         try {
@@ -149,6 +157,7 @@ class AtomicTest extends Accumulator {
     private AtomicInteger index = new AtomicInteger(0);
     private AtomicLong value = new AtomicLong(0);
 
+    @Override
     public void accumulate() {
         // Oops! Relying on more than one Atomic at
         // a time doesn't work. But it still gives us
@@ -159,6 +168,7 @@ class AtomicTest extends Accumulator {
             index.set(0);
     }
 
+    @Override
     public long read() {
         return value.get();
     }

@@ -98,10 +98,12 @@ class Solid<T extends Dimension & HasColor & Weight> {
 
 class Bounded
         extends Dimension implements HasColor, Weight {
+    @Override
     public java.awt.Color getColor() {
         return null;
     }
 
+    @Override
     public int weight() {
         return 0;
     }

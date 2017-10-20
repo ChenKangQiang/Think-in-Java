@@ -13,6 +13,7 @@ class Meal {
         this.orderNum = orderNum;
     }
 
+    @Override
     public String toString() {
         return "Meal " + orderNum;
     }
@@ -25,6 +26,7 @@ class WaitPerson implements Runnable {
         restaurant = r;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {
@@ -52,6 +54,7 @@ class Chef implements Runnable {
         restaurant = r;
     }
 
+    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {

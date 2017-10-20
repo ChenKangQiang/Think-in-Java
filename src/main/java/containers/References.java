@@ -14,10 +14,12 @@ class VeryBig {
         ident = id;
     }
 
+    @Override
     public String toString() {
         return ident;
     }
 
+    @Override
     protected void finalize() {
         System.out.println("Finalizing " + ident);
     }

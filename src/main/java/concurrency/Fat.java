@@ -18,6 +18,7 @@ public class Fat {
         System.out.println(this);
     }
 
+    @Override
     public String toString() {
         return "Fat id: " + id;
     }

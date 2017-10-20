@@ -42,6 +42,7 @@ public class Menus extends JFrame {
     private JButton b = new JButton("Swap Menus");
 
     class BL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             JMenuBar m = getJMenuBar();
             setJMenuBar(m == mb1 ? mb2 : mb1);
@@ -50,6 +51,7 @@ public class Menus extends JFrame {
     }
 
     class ML implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             JMenuItem target = (JMenuItem) e.getSource();
             String actionCommand = target.getActionCommand();
@@ -68,6 +70,7 @@ public class Menus extends JFrame {
     }
 
     class FL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             JMenuItem target = (JMenuItem) e.getSource();
             t.setText(target.getText());
@@ -78,24 +81,28 @@ public class Menus extends JFrame {
     // class for each different MenuItem. Then you
     // don't have to figure out which one it is:
     class FooL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             t.setText("Foo selected");
         }
     }
 
     class BarL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             t.setText("Bar selected");
         }
     }
 
     class BazL implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
             t.setText("Baz selected");
         }
     }
 
     class CMIL implements ItemListener {
+        @Override
         public void itemStateChanged(ItemEvent e) {
             JCheckBoxMenuItem target =
                     (JCheckBoxMenuItem) e.getSource();

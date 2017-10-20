@@ -75,6 +75,7 @@ public class Functional {
     // To use the above generic methods, we need to create
     // function objects to adapt to our particular needs:
     static class IntegerAdder implements Combiner<Integer> {
+        @Override
         public Integer combine(Integer x, Integer y) {
             return x + y;
         }
@@ -82,6 +83,7 @@ public class Functional {
 
     static class
     IntegerSubtracter implements Combiner<Integer> {
+        @Override
         public Integer combine(Integer x, Integer y) {
             return x - y;
         }
@@ -89,6 +91,7 @@ public class Functional {
 
     static class
     BigDecimalAdder implements Combiner<BigDecimal> {
+        @Override
         public BigDecimal combine(BigDecimal x, BigDecimal y) {
             return x.add(y);
         }
@@ -96,6 +99,7 @@ public class Functional {
 
     static class
     BigIntegerAdder implements Combiner<BigInteger> {
+        @Override
         public BigInteger combine(BigInteger x, BigInteger y) {
             return x.add(y);
         }
@@ -103,6 +107,7 @@ public class Functional {
 
     static class
     AtomicLongAdder implements Combiner<AtomicLong> {
+        @Override
         public AtomicLong combine(AtomicLong x, AtomicLong y) {
             // Not clear whether this is meaningful:
             return new AtomicLong(x.addAndGet(y.get()));
@@ -113,6 +118,7 @@ public class Functional {
     // (Units in the last place):
     static class BigDecimalUlp
             implements UnaryFunction<BigDecimal, BigDecimal> {
+        @Override
         public BigDecimal function(BigDecimal x) {
             return x.ulp();
         }
@@ -126,6 +132,7 @@ public class Functional {
             this.bound = bound;
         }
 
+        @Override
         public boolean test(T x) {
             return x.compareTo(bound) > 0;
         }
@@ -135,11 +142,13 @@ public class Functional {
             implements Collector<Integer> {
         private Integer val = 1;
 
+        @Override
         public Integer function(Integer x) {
             val *= x;
             return val;
         }
 
+        @Override
         public Integer result() {
             return val;
         }

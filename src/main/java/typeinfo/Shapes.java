@@ -8,22 +8,26 @@ abstract class Shape {
         System.out.println(this + ".draw()");
     }
 
+    @Override
     abstract public String toString();
 }
 
 class Circle extends Shape {
+    @Override
     public String toString() {
         return "Circle";
     }
 }
 
 class Square extends Shape {
+    @Override
     public String toString() {
         return "Square";
     }
 }
 
 class Triangle extends Shape {
+    @Override
     public String toString() {
         return "Triangle";
     }

@@ -36,6 +36,7 @@ class Pair { // Not thread-safe
         y++;
     }
 
+    @Override
     public String toString() {
         return "x: " + x + ", y: " + y;
     }
@@ -80,6 +81,7 @@ abstract class PairManager {
 
 // Synchronize the entire method:
 class PairManager1 extends PairManager {
+    @Override
     public synchronized void increment() {
         p.incrementX();
         p.incrementY();
@@ -89,6 +91,7 @@ class PairManager1 extends PairManager {
 
 // Use a critical section:
 class PairManager2 extends PairManager {
+    @Override
     public void increment() {
         Pair temp;
         synchronized (this) {
@@ -107,11 +110,13 @@ class PairManipulator implements Runnable {
         this.pm = pm;
     }
 
+    @Override
     public void run() {
         while (true)
             pm.increment();
     }
 
+    @Override
     public String toString() {
         return "Pair: " + pm.getPair() +
                 " checkCounter = " + pm.checkCounter.get();
@@ -125,6 +130,7 @@ class PairChecker implements Runnable {
         this.pm = pm;
     }
 
+    @Override
     public void run() {
         while (true) {
             pm.checkCounter.incrementAndGet();

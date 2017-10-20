@@ -16,6 +16,7 @@ public class LongRunningTask extends JFrame {
 
     public LongRunningTask() {
         b1.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 try {
                     TimeUnit.SECONDS.sleep(3);
@@ -27,6 +28,7 @@ public class LongRunningTask extends JFrame {
             }
         });
         b2.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 // Interrupt yourself?
                 Thread.currentThread().interrupt();

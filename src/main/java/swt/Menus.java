@@ -13,6 +13,7 @@ import net.mindview.util.*;
 public class Menus implements SWTApplication {
     private static Shell shell;
 
+    @Override
     public void createContents(Composite parent) {
         shell = parent.getShell();
         Menu bar = new Menu(shell, SWT.BAR);
@@ -37,6 +38,7 @@ public class Menus implements SWTApplication {
     }
 
     static Listener listener = new Listener() {
+        @Override
         public void handleEvent(Event e) {
             System.out.println(e.toString());
         }

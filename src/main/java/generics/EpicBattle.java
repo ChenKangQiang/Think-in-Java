@@ -58,9 +58,11 @@ class CanineHero<POWER extends SuperHearing & SuperSmell>
 }
 
 class SuperHearSmell implements SuperHearing, SuperSmell {
+    @Override
     public void hearSubtleNoises() {
     }
 
+    @Override
     public void trackBySmell() {
     }
 }

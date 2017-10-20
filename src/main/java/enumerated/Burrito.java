@@ -10,6 +10,7 @@ public class Burrito {
         this.degree = degree;
     }
 
+    @Override
     public String toString() {
         return "Burrito is " + degree;
     }

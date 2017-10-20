@@ -16,6 +16,7 @@ public class AtomicIntegerTest implements Runnable {
         i.addAndGet(2);
     }
 
+    @Override
     public void run() {
         while (true)
             evenIncrement();
@@ -23,6 +24,7 @@ public class AtomicIntegerTest implements Runnable {
 
     public static void main(String[] args) {
         new Timer().schedule(new TimerTask() {
+            @Override
             public void run() {
                 System.err.println("Aborting");
                 System.exit(0);

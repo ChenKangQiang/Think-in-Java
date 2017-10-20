@@ -15,6 +15,7 @@ public class SimpleQueue<T> implements Iterable<T> {
         return storage.poll();
     }
 
+    @Override
     public Iterator<T> iterator() {
         return storage.iterator();
     }

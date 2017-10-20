@@ -19,6 +19,7 @@ public class LocalInnerClass {
                 print("LocalCounter()");
             }
 
+            @Override
             public int next() {
                 printnb(name); // Access local final
                 return count++;
@@ -36,6 +37,7 @@ public class LocalInnerClass {
                 print("Counter()");
             }
 
+            @Override
             public int next() {
                 printnb(name); // Access local final
                 return count++;

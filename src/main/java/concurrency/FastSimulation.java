@@ -16,6 +16,7 @@ public class FastSimulation {
     static Random rand = new Random(47);
 
     static class Evolver implements Runnable {
+        @Override
         public void run() {
             while (!Thread.interrupted()) {
                 // Randomly select an element to work on:

@@ -3,12 +3,14 @@ package exceptions; /* Added by Eclipse.py */
 // How an exception can be lost.
 
 class VeryImportantException extends Exception {
+    @Override
     public String toString() {
         return "A very important exception!";
     }
 }
 
 class HoHumException extends Exception {
+    @Override
     public String toString() {
         return "A trivial exception";
     }

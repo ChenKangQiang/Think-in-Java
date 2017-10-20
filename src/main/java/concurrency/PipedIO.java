@@ -16,6 +16,7 @@ class Sender implements Runnable {
         return out;
     }
 
+    @Override
     public void run() {
         try {
             while (true)
@@ -38,6 +39,7 @@ class Receiver implements Runnable {
         in = new PipedReader(sender.getPipedWriter());
     }
 
+    @Override
     public void run() {
         try {
             while (true) {

@@ -42,6 +42,7 @@ public class SerialNumberChecker {
             Executors.newCachedThreadPool();
 
     static class SerialChecker implements Runnable {
+        @Override
         public void run() {
             while (true) {
                 int serial =

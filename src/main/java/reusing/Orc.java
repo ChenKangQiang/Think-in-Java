@@ -15,6 +15,7 @@ class Villain {
         this.name = name;
     }
 
+    @Override
     public String toString() {
         return "I'm a Villain and my name is " + name;
     }
@@ -33,6 +34,7 @@ public class Orc extends Villain {
         this.orcNumber = orcNumber;
     }
 
+    @Override
     public String toString() {
         return "Orc " + orcNumber + ": " + super.toString();
     }

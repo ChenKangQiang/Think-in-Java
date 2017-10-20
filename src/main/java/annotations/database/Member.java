@@ -26,6 +26,7 @@ public class Member {
         return lastName;
     }
 
+    @Override
     public String toString() {
         return handle;
     }

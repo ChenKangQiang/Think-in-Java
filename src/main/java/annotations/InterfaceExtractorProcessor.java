@@ -22,6 +22,7 @@ public class InterfaceExtractorProcessor
         this.env = env;
     }
 
+    @Override
     public void process() {
         for (TypeDeclaration typeDecl :
                 env.getSpecifiedTypeDeclarations()) {

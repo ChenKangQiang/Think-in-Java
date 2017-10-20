@@ -17,6 +17,7 @@ class StaticSub extends StaticSuper {
         return "Derived staticGet()";
     }
 
+    @Override
     public String dynamicGet() {
         return "Derived dynamicGet()";
     }

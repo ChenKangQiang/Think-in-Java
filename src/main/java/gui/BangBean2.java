@@ -58,6 +58,7 @@ public class BangBean2 extends JPanel
         tColor = newColor;
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
@@ -93,6 +94,7 @@ public class BangBean2 extends JPanel
     }
 
     class ML extends MouseAdapter {
+        @Override
         public void mousePressed(MouseEvent e) {
             Graphics g = getGraphics();
             g.setColor(tColor);
@@ -107,6 +109,7 @@ public class BangBean2 extends JPanel
     }
 
     class MM extends MouseMotionAdapter {
+        @Override
         public void mouseMoved(MouseEvent e) {
             xm = e.getX();
             ym = e.getY();
@@ -117,16 +120,19 @@ public class BangBean2 extends JPanel
     public static void main(String[] args) {
         BangBean2 bb2 = new BangBean2();
         bb2.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("ActionEvent" + e);
             }
         });
         bb2.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("BangBean2 action");
             }
         });
         bb2.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("More action");
             }

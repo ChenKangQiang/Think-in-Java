@@ -11,6 +11,7 @@ public class SetPerformance {
 
     static {
         tests.add(new Test<Set<Integer>>("add") {
+            @Override
             int test(Set<Integer> set, TestParam tp) {
                 int loops = tp.loops;
                 int size = tp.size;
@@ -23,6 +24,7 @@ public class SetPerformance {
             }
         });
         tests.add(new Test<Set<Integer>>("contains") {
+            @Override
             int test(Set<Integer> set, TestParam tp) {
                 int loops = tp.loops;
                 int span = tp.size * 2;
@@ -33,6 +35,7 @@ public class SetPerformance {
             }
         });
         tests.add(new Test<Set<Integer>>("iterate") {
+            @Override
             int test(Set<Integer> set, TestParam tp) {
                 int loops = tp.loops * 10;
                 for (int i = 0; i < loops; i++) {

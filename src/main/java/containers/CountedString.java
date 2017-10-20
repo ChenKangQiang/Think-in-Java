@@ -22,11 +22,13 @@ public class CountedString {
                 id++;
     }
 
+    @Override
     public String toString() {
         return "String: " + s + " id: " + id +
                 " hashCode(): " + hashCode();
     }
 
+    @Override
     public int hashCode() {
         // The very simple approach:
         // return s.hashCode() * id;
@@ -37,6 +39,7 @@ public class CountedString {
         return result;
     }
 
+    @Override
     public boolean equals(Object o) {
         return o instanceof CountedString &&
                 s.equals(((CountedString) o).s) &&

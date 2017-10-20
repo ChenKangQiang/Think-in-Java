@@ -16,6 +16,7 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
     LinkedList<MapEntry<K, V>>[] buckets =
             new LinkedList[SIZE];
 
+    @Override
     public V put(K key, V value) {
         V oldValue = null;
         int index = Math.abs(key.hashCode()) % SIZE;
@@ -39,6 +40,7 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
         return oldValue;
     }
 
+    @Override
     public V get(Object key) {
         int index = Math.abs(key.hashCode()) % SIZE;
         if (buckets[index] == null) return null;
@@ -48,6 +50,7 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
         return null;
     }
 
+    @Override
     public Set<Entry<K, V>> entrySet() {
         Set<Entry<K, V>> set = new HashSet<Entry<K, V>>();
         for (LinkedList<MapEntry<K, V>> bucket : buckets) {

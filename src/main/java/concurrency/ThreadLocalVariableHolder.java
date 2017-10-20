@@ -12,6 +12,7 @@ class Accessor implements Runnable {
         id = idn;
     }
 
+    @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             ThreadLocalVariableHolder.increment();
@@ -20,6 +21,7 @@ class Accessor implements Runnable {
         }
     }
 
+    @Override
     public String toString() {
         return "#" + id + ": " +
                 ThreadLocalVariableHolder.get();
@@ -31,6 +33,7 @@ public class ThreadLocalVariableHolder {
             new ThreadLocal<Integer>() {
                 private Random rand = new Random(47);
 
+                @Override
                 protected synchronized Integer initialValue() {
                     return rand.nextInt(10000);
                 }

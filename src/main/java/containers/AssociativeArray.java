@@ -26,6 +26,7 @@ public class AssociativeArray<K, V> {
         return null; // Did not find key
     }
 
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < index; i++) {

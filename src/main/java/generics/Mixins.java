@@ -14,6 +14,7 @@ class TimeStampedImp implements TimeStamped {
         timeStamp = new Date().getTime();
     }
 
+    @Override
     public long getStamp() {
         return timeStamp;
     }
@@ -27,6 +28,7 @@ class SerialNumberedImp implements SerialNumbered {
     private static long counter = 1;
     private final long serialNumber = counter++;
 
+    @Override
     public long getSerialNumber() {
         return serialNumber;
     }
@@ -41,10 +43,12 @@ interface Basic {
 class BasicImp implements Basic {
     private String value;
 
+    @Override
     public void set(String val) {
         value = val;
     }
 
+    @Override
     public String get() {
         return value;
     }
@@ -56,10 +60,12 @@ class Mixin extends BasicImp
     private SerialNumbered serialNumber =
             new SerialNumberedImp();
 
+    @Override
     public long getStamp() {
         return timeStamp.getStamp();
     }
 
+    @Override
     public long getSerialNumber() {
         return serialNumber.getSerialNumber();
     }

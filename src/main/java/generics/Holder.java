@@ -19,6 +19,7 @@ public class Holder<T> {
         return value;
     }
 
+    @Override
     public boolean equals(Object obj) {
         return value.equals(obj);
     }
