@@ -6,13 +6,11 @@ class Lisa extends Homer {
 
     @Override
     char doh(char c) {
-        // TODO Auto-generated method stub
         return super.doh(c);
     }
 
     @Override
     float doh(float f) {
-        // TODO Auto-generated method stub
         return super.doh(f);
     }
 
