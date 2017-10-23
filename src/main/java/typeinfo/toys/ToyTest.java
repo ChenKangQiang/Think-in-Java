@@ -23,8 +23,7 @@ class Toy {
     }
 }
 
-class FancyToy extends Toy
-        implements HasBatteries, Waterproof, Shoots {
+class FancyToy extends Toy implements HasBatteries, Waterproof, Shoots {
     FancyToy() {
         super(1);
     }
@@ -47,12 +46,14 @@ public class ToyTest {
             System.exit(1);
         }
         printInfo(c);
-        for (Class face : c.getInterfaces())
+        for (Class face : c.getInterfaces()) {
             printInfo(face);
+        }
+
         Class up = c.getSuperclass();
         Object obj = null;
         try {
-            // Requires default constructor:
+            // 需要有默认构造器
             obj = up.newInstance();
         } catch (InstantiationException e) {
             print("Cannot instantiate");

@@ -4,9 +4,15 @@ package typeinfo; /* Added by Eclipse.py */
 import java.util.*;
 
 class Initable {
+    /**
+    编译期常量，不需要对Initable初始化就可以被读取
+     */
     static final int staticFinal = 47;
-    static final int staticFinal2 =
-            ClassInitialization.rand.nextInt(1000);
+
+    /**
+     * staticFinal2的访问将强制进行类的初始化
+     */
+    static final int staticFinal2 = ClassInitialization.rand.nextInt(1000);
 
     static {
         System.out.println("Initializing Initable");
@@ -29,10 +35,14 @@ class Initable3 {
     }
 }
 
+/**
+ * @author chen
+ */
 public class ClassInitialization {
     public static Random rand = new Random(47);
 
     public static void main(String[] args) throws Exception {
+        // 不会自动化地初始化改Class对象，初始化延迟到了对静态方法或者非常数静态域进行首次引用时才执行
         Class initable = Initable.class;
         System.out.println("After creating Initable ref");
         // Does not trigger initialization:
