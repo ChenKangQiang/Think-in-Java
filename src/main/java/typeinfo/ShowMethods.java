@@ -6,6 +6,7 @@ package typeinfo; /* Added by Eclipse.py */
 
 import java.lang.reflect.*;
 import java.util.regex.*;
+import java.lang.Object;
 
 import static net.mindview.util.Print.*;
 
@@ -27,27 +28,34 @@ public class ShowMethods {
         try {
             Class<?> c = Class.forName(args[0]);
             Method[] methods = c.getMethods();
+            for (int i = 0; i < methods.length; i++) {
+                System.out.println(methods[i].toString());
+            }
             Constructor[] ctors = c.getConstructors();
+            System.out.println("去除方法前面的全名");
             if (args.length == 1) {
-                for (Method method : methods)
-                    print(
-                            p.matcher(method.toString()).replaceAll(""));
-                for (Constructor ctor : ctors)
+                for (Method method : methods) {
+                    print(p.matcher(method.toString()).replaceAll(""));
+                }
+                for (Constructor ctor : ctors) {
                     print(p.matcher(ctor.toString()).replaceAll(""));
+                }
                 lines = methods.length + ctors.length;
             } else {
-                for (Method method : methods)
+                for (Method method : methods) {
                     if (method.toString().indexOf(args[1]) != -1) {
                         print(
                                 p.matcher(method.toString()).replaceAll(""));
                         lines++;
                     }
-                for (Constructor ctor : ctors)
+                }
+                for (Constructor ctor : ctors) {
                     if (ctor.toString().indexOf(args[1]) != -1) {
                         print(p.matcher(
                                 ctor.toString()).replaceAll(""));
                         lines++;
                     }
+                }
             }
         } catch (ClassNotFoundException e) {
             print("No such class: " + e);
