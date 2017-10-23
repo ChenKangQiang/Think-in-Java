@@ -10,9 +10,11 @@ class Manipulator<T> {
     }
 
     // Error: cannot find symbol: method f():
+    /*
     public void manipulate() {
         obj.f();
     }
+    */
 }
 
 public class Manipulation {
@@ -20,6 +22,6 @@ public class Manipulation {
         HasF hf = new HasF();
         Manipulator<HasF> manipulator =
                 new Manipulator<HasF>(hf);
-        manipulator.manipulate();
+        //manipulator.manipulate();
     }
 } ///:~
